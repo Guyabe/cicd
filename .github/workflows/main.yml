@@ -84,7 +84,7 @@ jobs:
 
   terraform-apply:
     needs: manual-approval
-    runs-on: terraformcd
+    runs-on: self-hosted
     if: github.event_name != 'workflow_dispatch' || github.ref == 'refs/heads/main'
     permissions:
       contents: read
