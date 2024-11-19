@@ -71,7 +71,7 @@ jobs:
 
   manual-approval:
     needs: terraform-plan
-    runs-on: terraformcd
+    runs-on: self-hosted
     if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     steps:
       - uses: trstringer/manual-approval@v1
