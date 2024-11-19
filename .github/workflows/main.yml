@@ -77,7 +77,7 @@ jobs:
       - uses: trstringer/manual-approval@v1
         with:
           secret: ${{ secrets.TERRAFORMCD }}
-          approvers: ${{ vars.TERRAFORM_MANUAL_APPROVALS }}
+          approvers: ${{ vars.INPUT_APPROVERS }}
           minimum-approvals: 1
           issue-title: "Terraform Apply Approval Request"
           issue-body: "Please approve or deny the terraform apply command"
