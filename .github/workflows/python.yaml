@@ -59,6 +59,14 @@ jobs:
       - name: Push Docker image
         run: docker push gabecasis/users_app:v1
 
+      - name: Install Trivy
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
+
+      - name: Scan Docker image with Trivy
+        run: |
+          ./trivy image --exit-code 1 --severity HIGH,CRITICAL gabecasis/users_app:v1
+
   deploy:
     runs-on: ubuntu-latest
     needs: docker-build-push
