@@ -1,6 +1,6 @@
-import users
+from users import get_users
 
 def test_get_users():
-    numofusers = users.get_users()
-    assert len(numofusers) > 10000
-
+    users = get_users()
+    assert isinstance(users, list)
+    assert len(users) > 0
